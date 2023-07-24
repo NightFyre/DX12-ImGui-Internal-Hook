@@ -6,8 +6,21 @@
 
 #ifndef PCH_H
 #define PCH_H
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <string>
+#include <vector>
+#include <thread>
+#include <memory>
 
-// add headers that you want to pre-compile here
-#include "framework.h"
+//	DirectX
+#include <dxgi1_4.h>
+#include <d3d12.h>
+#include <MinHook.h>
+#include <imgui.h>
+#include <imgui_internal.h>
+#include <imgui_impl_dx12.h>
+#include <imgui_impl_win32.h>
+using namespace std::chrono_literals;
 
 #endif //PCH_H

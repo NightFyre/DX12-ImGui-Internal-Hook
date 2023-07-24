@@ -138,13 +138,13 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\Minhook\src;X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\DearImGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\Minhook\src;$(SolutionDir)libs\DearImGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\Minhook\lib;X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\DearImGui\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\libs\Minhook\lib;$(SolutionDir)\libs\DearImGui\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>DearImGui_debug.lib;Minhook_debug.lib;d3d12.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -160,7 +160,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\Minhook\src;X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\DearImGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\libs\Minhook\src;$(SolutionDir)\libs\DearImGui\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,7 +168,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\Minhook\lib;X:\.NightFyre\UPLOADS\.git\DX12-ImGui-Internal-Hook\libs\DearImGui\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\libs\Minhook\lib;$(SolutionDir)\libs\DearImGui\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>DearImGui.lib;Minhook.lib;d3d12.lib%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

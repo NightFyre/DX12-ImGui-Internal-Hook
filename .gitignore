@@ -1,0 +1,17 @@
+# exclude binaries and debug output
+.vs/
+bin/
+debug/
+release/
+x86/
+x64/
+lib/
+
+# Exclude External Libraries
+DearImGui/
+Minhook/
+
+# exclude personal settings
+*.sln
+*.vcxproj.filters
+*.vcxproj.user

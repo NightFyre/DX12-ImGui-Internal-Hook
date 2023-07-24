@@ -1,7 +1,9 @@
 # DX12-ImGui-Internal-Hook
 Complete DX12 Internal Hook w/ Dear ImGui
 
-![image](https://github.com/NightFyre/DX12-ImGui-Internal-Hook/assets/80198020/eeac08ba-0450-4879-99cb-061dc29f56b8)
+<p align="center">
+<img src="https://github.com/NightFyre/DX12-ImGui-Internal-Hook/assets/80198020/b0ef9629-63e1-4678-be50-bfdc77cff68a">
+</p>
 
 ## External Library Credits
 

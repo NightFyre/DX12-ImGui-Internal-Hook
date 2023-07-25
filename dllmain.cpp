@@ -46,7 +46,8 @@ public:
 	bool										bKillswitch = FALSE;
 
 public:
-	bool										InitializeWindowContext(const wchar_t* wndwClassName);
+	bool										InitializeWindow(std::string windowName);
+	bool										FindGameWindow(std::string title, HWND& out);
 	bool										ObtainDevice(IDXGISwapChain* pSwapChain);
 	void										InitializeImGui(ID3D12Device* pDevice);
 	void										Overlay();
@@ -162,10 +163,38 @@ void DX12_Base::HookExecuteCommandLists(ID3D12CommandQueue* queue, UINT NumComma
 	g_DX12->oExecuteCommandLists(queue, NumCommandLists, ppCommandLists);
 }
 
-//	CUSTOM FUNCTIONS
-bool DX12_Base::InitializeWindowContext(const wchar_t* wndwClassName)
+bool DX12_Base::FindGameWindow(std::string title, HWND& out)
 {
-	this->m_GameWindow	= FindWindow(wndwClassName, NULL);
+	DWORD	tempWndwPID	= NULL;
+	HWND	tempHWND	= NULL;
+	DWORD	procID		= GetCurrentProcessId();
+	HANDLE	tempHandle	= OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, procID);
+	do
+	{
+		tempHWND = FindWindowEx(NULL, tempHWND, NULL, NULL);
+		GetWindowThreadProcessId(tempHWND, &tempWndwPID);
+		if (tempWndwPID == procID)
+		{
+
+			char tempSTRING[MAX_PATH];
+			GetWindowTextA(tempHWND, (LPSTR)tempSTRING, MAX_PATH);
+
+			if (tempSTRING == title)
+			{
+				//	@TODO: This is a perfect time to retrieve the rest of the window information
+				out = tempHWND;
+				return TRUE;
+			}
+		}
+	} while (tempHWND != NULL);
+}
+
+//	CUSTOM FUNCTIONS
+bool DX12_Base::InitializeWindow(std::string windowName)
+{
+	if (!FindGameWindow("PS2 BIOS (USA)", this->m_GameWindow))
+		return FALSE;
+
 	if (this->m_GameWindow == nullptr)
 		return FALSE;
 
@@ -569,7 +598,7 @@ void DX12_Base::DisableAllHooks()
 void APIENTRY MainThread(HMODULE hInst)
 {
 	g_DX12				= std::make_unique<DX12_Base>();
-	g_DX12->bRunning	= g_DX12->InitializeWindowContext(L"ImGui Example");
+	g_DX12->bRunning	= g_DX12->InitializeWindow("PS2 BIOS (USA)");
 	while (g_DX12->bRunning)
 	{
 		if (GetAsyncKeyState(VK_INSERT) & 1)	g_DX12->m_ShowMenu	^= 1;
